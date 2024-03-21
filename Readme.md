@@ -1,6 +1,6 @@
 # Todo
 
-- [ ] Scan port
+- [x] Scan port
 - [ ] Search domain
 - [ ] Search subdomain
 - [ ] BruteForce url with Fuzzin or Dirb

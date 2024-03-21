@@ -7,6 +7,7 @@ from urllib.parse import urljoin
 def get_all_forms(url):
     """Given a `url`, it returns all forms from the HTML content"""
     soup = bs(requests.get(url).content, "html.parser")
+    print(soup)
     return soup.find_all("form")
 
 
