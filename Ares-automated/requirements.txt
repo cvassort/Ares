@@ -1,0 +1,7 @@
+python-nmap 
+argparse 
+requests 
+beautifulsoup4 
+reportlab 
+jinja2
+urllib3

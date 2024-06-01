@@ -1,0 +1,9 @@
+services:
+  kali-pentest:
+    build: .
+    container_name: kali_pentest
+    volumes:
+      - .:/app
+    network_mode: host
+    tty: true
+    privileged: true
