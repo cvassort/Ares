@@ -2,14 +2,27 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <title>Rapport de test d'intrusion pour {{ target }}</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Security Report</title>
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
+    />
+    <link rel="stylesheet" href="styles.css" />
+    <!-- Assurez-vous que le chemin vers votre fichier CSS est correct -->
   </head>
   <body>
-    <h1>Rapport de test d'intrusion pour {{ target }}</h1>
-    <h2>Résultats Nmap:</h2>
-    <pre>{{ nmap_results }}</pre>
-    <h2>Résultats Nuclei:</h2>
-    <pre>{{ nuclei_results }}</pre>
-    <!-- Ajoutez d'autres sections pour les résultats des tests de sécurité ici -->
+    <header>
+      <h1>Security Report for {{ target }}</h1>
+      <p>Report generated on: {{ date }}</p>
+    </header>
+    <main>
+      {% for scan_name, scan_data in scan_results.items() %}
+      <section>
+        <h2>{{ scan_name }} Scan Results</h2>
+        <pre>{{ scan_data }}</pre>
+      </section>
+      {% endfor %}
+    </main>
   </body>
 </html>

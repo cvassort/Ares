@@ -20,7 +20,7 @@ def main():
         print(f"Scanning {target}")
         scan_target(target, folder_path)
         run_security_tests(target, folder_path)
-        # generate_report(target, folder_path)
+        generate_report(target, folder_path)
 
 if __name__ == "__main__":
     main()

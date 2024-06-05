@@ -1,97 +1,74 @@
 import os
-from reportlab.lib.pagesizes import letter
-from reportlab.pdfgen import canvas
+from datetime import datetime
 from jinja2 import Template
+from weasyprint import HTML
 
-def generate_report(target, folder_path):
-    generate_pdf_report(target, folder_path)
-    generate_html_report(target, folder_path)
+def load_file_content(file_path):
+    if os.path.isfile(file_path):  # Vérifiez que le chemin est bien un fichier
+        with open(file_path, 'r') as file:
+            return file.read()
+    return "File not found."
+
+def generate_html_report(target, folder_path):
+    ip, port = target.split(':') if ':' in target else (target, None)
+    scan_files = {
+        'Nmap': os.path.join(folder_path, 'nmap', f'{ip}:{port}_nmap.txt'),
+        'Nuclei': os.path.join(folder_path, 'nuclei', f'{ip}:{port}_nuclei.txt'),
+        'Wapiti': os.path.join(folder_path, 'wapiti', f'{ip}:{port}_wapiti.txt'),
+        'WhatWeb': os.path.join(folder_path, 'whatweb', f'{ip}:{port}_whatweb.txt'),
+        'Nikto': os.path.join(folder_path, 'nikto', f'{ip}:{port}_nikto.txt'),
+        'Dirb': os.path.join(folder_path, 'dirb', f'{ip}:{port}_dirb.txt'),
+        'XSS': os.path.join(folder_path, 'xss', f'{ip}:{port}_xss.txt'),
+        'SQLi': os.path.join(folder_path, 'sqli', f'{ip}:{port}_sqli.txt')
+    }
+
+    scan_results = {name: load_file_content(path) for name, path in scan_files.items()}
+
+    with open('./script/report_template.html', 'r') as file:
+        template = Template(file.read())
+
+    date_str = datetime.now().strftime("%Y-%m-%d %H:%M:%S")
+    html_content = template.render(target=target, date=date_str, scan_results=scan_results)
+
+    return html_content
 
 def generate_pdf_report(target, folder_path):
-    ip, port = target.split(':')
+    html_content = generate_html_report(target, folder_path)
+    html_file = os.path.join(folder_path, f'{target}_report.html')
+    pdf_file = os.path.join(folder_path, f'{target}_report.pdf')
+
+    with open(html_file, 'w') as file:
+        file.write(html_content)
+
+    HTML(html_file).write_pdf(pdf_file)
+    print(f"PDF report generated: {pdf_file}")
+
+def generate_report(target, folder_path):
+    os.makedirs(folder_path, exist_ok=True)
     
-    nmap_folder_path = os.path.join(folder_path, 'nmap')
-    nmap_file = os.path.join(nmap_folder_path, f'{target}_nmap.txt')
-    if not os.path.exists(nmap_file):
-        print(f"Error: The required file {nmap_file} does not exist.")
-        return
+    # Créez les sous-répertoires nécessaires
+    sub_dirs = ['nmap', 'nuclei', 'wapiti', 'whatweb', 'nikto', 'dirb', 'xss', 'sqli']
+    for sub_dir in sub_dirs:
+        os.makedirs(os.path.join(folder_path, sub_dir), exist_ok=True)
 
-    nuclei_folder_path = os.path.join(folder_path, 'nuclei')
-    nuclei_file = os.path.join(nuclei_folder_path, f'{target}_nuclei.csv')
-    if not os.path.exists(nuclei_file):
-        print(f"Error: The required file {nuclei_file} does not exist.")
-        return
-    
-    wapiti_folder_path = os.path.join(folder_path, 'wapiti')
-    wapiti_file = os.path.join(wapiti_folder_path, f'{target}_wapiti.json')
-    if not os.path.exists(wapiti_file):
-        print(f"Error: The required file {wapiti_file} does not exist.")
-        return
-    
-    whatweb_folder_path = os.path.join(folder_path, 'whatweb')
-    whatweb_file = os.path.join(whatweb_folder_path, f'{target}_whatweb.json')
-    if not os.path.exists(whatweb_file):
-        print(f"Error: The required file {whatweb_file} does not exist.")
-        return
-    
-    nikto_folder_path = os.path.join(folder_path, 'nikto')
-    nikto_file = os.path.join(nikto_folder_path, f'{target}_nikto.txt')
-    if not os.path.exists(nikto_file):
-        print(f"Error: The required file {nikto_file} does not exist.")
-        return
-    
-    dirb_folder_path = os.path.join(folder_path, 'dirb')
-    dirb_file = os.path.join(dirb_folder_path, f'{target}_dirb.txt')
-    if not os.path.exists(dirb_file):
-        print(f"Error: The required file {dirb_file} does not exist.")
-        return
-    
-    xss_folder_path = os.path.join(folder_path, 'xss')
-    xss_file = os.path.join(folder_path, f'{target}_xss.txt')
-    if not os.path.exists(xss_file):
-        print(f"Error: The required file {xss_file} does not exist.")
-        return
-    
-    sqli_folder_path = os.path.join(folder_path, 'sqli')
-    sqli_file = os.path.join(folder_path, f'{target}_sqli.txt')
-    if not os.path.exists(sqli_file):
-        print(f"Error: The required file {sqli_file} does not exist.")
-        return
-    
+    generate_pdf_report(target, folder_path)
 
-    # pdf_file = f'{target}_report.pdf'
-    # c = canvas.Canvas(pdf_file, pagesize=letter)
-    # width, height = letter
 
-    # c.drawString(100, height - 100, f"Security Report for {target}")
 
-    # with open(nmap_file, 'r') as f:
-    #     nmap_data = f.read()
-    # with open(nuclei_file, 'r') as f:
-    #     nuclei_data = f.read()
 
-    # c.drawString(100, height - 150, "Nmap Scan Results:")
-    # c.drawString(100, height - 170, nmap_data)
 
-    # c.drawString(100, height - 200, "Nuclei Scan Results:")
-    # c.drawString(100, height - 220, nuclei_data)
 
-    # c.save()
 
-def generate_html_report(target):
-    ip, port = target.split(':')
 
-    # if not os.path.exists(nmap_file):
-    #     print(f"Error: The required file {nmap_file} does not exist.")
-    #     return
-    # with open(nmap_file, 'r') as f:f:
-    #     nmap_data = f.read()
-    # pdf_file = f'{target}_report.pdf'
-    # c = canvas.Canvas(pdf_file, pagesize=letter)
 
-    # width, height = letter
 
-    # c.drawString(100, height - 100, f"Security Report for {target}")
-    # c.drawString(100, height - 150, "Nmap Scan Results:")
-    # c.drawString(100, height - 170, nmap_data)
-    # c.save()
+
+
+
+
+
+
+
+def generate_report(target, folder_path):
+    generate_html_report(target, folder_path)
+    generate_pdf_report(target, folder_path)

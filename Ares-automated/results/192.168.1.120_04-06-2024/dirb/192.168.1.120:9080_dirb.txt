@@ -1,0 +1,22 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: results/192.168.1.120_04-06-2024/dirb/192.168.1.120:9080_dirb.txt
+START_TIME: Wed Jun  5 19:50:08 2024
+URL_BASE: http://192.168.1.120:9080/
+WORDLIST_FILES: wordlists/big.txt
+
+-----------------
+
+GENERATED WORDS: 555
+
+---- Scanning URL: http://192.168.1.120:9080/ ----
+(!) WARNING: All responses for this directory seem to be CODE = 500.
+    (Use mode '-w' if you want to scan it anyway)
+
+-----------------
+END_TIME: Wed Jun  5 19:50:10 2024
+DOWNLOADED: 101 - FOUND: 0

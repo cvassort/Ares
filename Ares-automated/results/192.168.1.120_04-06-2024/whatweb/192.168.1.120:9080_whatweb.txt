@@ -1,0 +1,224 @@
+WhatWeb report for http://192.168.1.120:9080
+Status    : 302 Found
+Title     : <None>
+IP        : 192.168.1.120
+Country   : RESERVED, ZZ
+
+Summary   : HTTPServer[nginx], nginx, RedirectLocation[http://192.168.1.120:9080/users/sign_in], Strict-Transport-Security[max-age=63072000], UncommonHeaders[content-security-policy,permissions-policy,x-content-type-options,x-download-options,x-gitlab-meta,x-permitted-cross-domain-policies,x-request-id,referrer-policy], X-Frame-Options[SAMEORIGIN], X-UA-Compatible[IE=edge], X-XSS-Protection[1; mode=block]
+
+Detected Plugins:
+[ HTTPServer ]
+	HTTP server header string. This plugin also attempts to 
+	identify the operating system from the server header. 
+
+	String       : nginx (from server string)
+
+[ RedirectLocation ]
+	HTTP Server string location. used with http-status 301 and 
+	302 
+
+	String       : http://192.168.1.120:9080/users/sign_in (from location)
+
+[ Strict-Transport-Security ]
+	Strict-Transport-Security is an HTTP header that restricts 
+	a web browser from accessing a website without the security 
+	of the HTTPS protocol. 
+
+	String       : max-age=63072000
+
+[ UncommonHeaders ]
+	Uncommon HTTP server headers. The blacklist includes all 
+	the standard headers and many non standard but common ones. 
+	Interesting but fairly common headers should have their own 
+	plugins, eg. x-powered-by, server and x-aspnet-version. 
+	Info about headers can be found at www.http-stats.com 
+
+	String       : content-security-policy,permissions-policy,x-content-type-options,x-download-options,x-gitlab-meta,x-permitted-cross-domain-policies,x-request-id,referrer-policy (from headers)
+
+[ X-Frame-Options ]
+	This plugin retrieves the X-Frame-Options value from the 
+	HTTP header. - More Info: 
+	http://msdn.microsoft.com/en-us/library/cc288472%28VS.85%29.
+	aspx
+
+	String       : SAMEORIGIN
+
+[ X-UA-Compatible ]
+	This plugin retrieves the X-UA-Compatible value from the 
+	HTTP header and meta http-equiv tag. - More Info: 
+	http://msdn.microsoft.com/en-us/library/cc817574.aspx 
+
+	String       : IE=edge
+
+[ X-XSS-Protection ]
+	This plugin retrieves the X-XSS-Protection value from the 
+	HTTP header. - More Info: 
+	http://msdn.microsoft.com/en-us/library/cc288472%28VS.85%29.
+	aspx
+
+	String       : 1; mode=block
+
+[ nginx ]
+	Nginx (Engine-X) is a free, open-source, high-performance 
+	HTTP server and reverse proxy, as well as an IMAP/POP3 
+	proxy server. 
+
+	Website     : http://nginx.net/
+
+HTTP Headers:
+	HTTP/1.1 302 Found
+	Server: nginx
+	Date: Tue, 04 Jun 2024 22:33:00 GMT
+	Content-Type: text/html; charset=utf-8
+	Content-Length: 105
+	Connection: close
+	Cache-Control: no-cache
+	Content-Security-Policy:
+	Location: http://192.168.1.120:9080/users/sign_in
+	Permissions-Policy: interest-cohort=()
+	X-Content-Type-Options: nosniff
+	X-Download-Options: noopen
+	X-Frame-Options: SAMEORIGIN
+	X-Gitlab-Meta: {"correlation_id":"01HZJP4QJMB65CHD06BFSQH0VS","version":"1"}
+	X-Permitted-Cross-Domain-Policies: none
+	X-Request-Id: 01HZJP4QJMB65CHD06BFSQH0VS
+	X-Runtime: 0.018209
+	X-Ua-Compatible: IE=edge
+	X-Xss-Protection: 1; mode=block
+	Strict-Transport-Security: max-age=63072000
+	Referrer-Policy: strict-origin-when-cross-origin
+	
+WhatWeb report for http://192.168.1.120:9080/users/sign_in
+Status    : 200 OK
+Title     : Sign in · GitLab
+IP        : 192.168.1.120
+Country   : RESERVED, ZZ
+
+Summary   : Cookies[_gitlab_session,preferred_language], HTML5, HTTPServer[nginx], HttpOnly[_gitlab_session], nginx, Open-Graph-Protocol, OpenSearch[/search/opensearch.xml], PasswordField[user[password]], Script, Strict-Transport-Security[max-age=63072000], UncommonHeaders[content-security-policy,permissions-policy,x-content-type-options,x-download-options,x-gitlab-meta,x-permitted-cross-domain-policies,x-request-id,referrer-policy], X-Frame-Options[SAMEORIGIN], X-UA-Compatible[IE=edge], X-XSS-Protection[1; mode=block]
+
+Detected Plugins:
+[ Cookies ]
+	Display the names of cookies in the HTTP headers. The 
+	values are not returned to save on space. 
+
+	String       : preferred_language
+	String       : _gitlab_session
+
+[ HTML5 ]
+	HTML version 5, detected by the doctype declaration 
+
+
+[ HTTPServer ]
+	HTTP server header string. This plugin also attempts to 
+	identify the operating system from the server header. 
+
+	String       : nginx (from server string)
+
+[ HttpOnly ]
+	If the HttpOnly flag is included in the HTTP set-cookie 
+	response header and the browser supports it then the cookie 
+	cannot be accessed through client side script - More Info: 
+	http://en.wikipedia.org/wiki/HTTP_cookie 
+
+	String       : _gitlab_session
+
+[ Open-Graph-Protocol ]
+	The Open Graph protocol enables you to integrate your Web 
+	pages into the social graph. It is currently designed for 
+	Web pages representing profiles of real-world things . 
+	things like movies, sports teams, celebrities, and 
+	restaurants. Including Open Graph tags on your Web page, 
+	makes your page equivalent to a Facebook Page. 
+
+
+[ OpenSearch ]
+	This plugin identifies open search and extracts the URL. 
+	OpenSearch is a collection of simple formats for the 
+	sharing of search results. 
+
+	String       : /search/opensearch.xml
+
+[ PasswordField ]
+	find password fields 
+
+	String       : user[password] (from field name)
+
+[ Script ]
+	This plugin detects instances of script HTML elements and 
+	returns the script language/type. 
+
+
+[ Strict-Transport-Security ]
+	Strict-Transport-Security is an HTTP header that restricts 
+	a web browser from accessing a website without the security 
+	of the HTTPS protocol. 
+
+	String       : max-age=63072000
+
+[ UncommonHeaders ]
+	Uncommon HTTP server headers. The blacklist includes all 
+	the standard headers and many non standard but common ones. 
+	Interesting but fairly common headers should have their own 
+	plugins, eg. x-powered-by, server and x-aspnet-version. 
+	Info about headers can be found at www.http-stats.com 
+
+	String       : content-security-policy,permissions-policy,x-content-type-options,x-download-options,x-gitlab-meta,x-permitted-cross-domain-policies,x-request-id,referrer-policy (from headers)
+
+[ X-Frame-Options ]
+	This plugin retrieves the X-Frame-Options value from the 
+	HTTP header. - More Info: 
+	http://msdn.microsoft.com/en-us/library/cc288472%28VS.85%29.
+	aspx
+
+	String       : SAMEORIGIN
+
+[ X-UA-Compatible ]
+	This plugin retrieves the X-UA-Compatible value from the 
+	HTTP header and meta http-equiv tag. - More Info: 
+	http://msdn.microsoft.com/en-us/library/cc817574.aspx 
+
+	String       : IE=edge
+
+[ X-XSS-Protection ]
+	This plugin retrieves the X-XSS-Protection value from the 
+	HTTP header. - More Info: 
+	http://msdn.microsoft.com/en-us/library/cc288472%28VS.85%29.
+	aspx
+
+	String       : 1; mode=block
+
+[ nginx ]
+	Nginx (Engine-X) is a free, open-source, high-performance 
+	HTTP server and reverse proxy, as well as an IMAP/POP3 
+	proxy server. 
+
+	Website     : http://nginx.net/
+
+HTTP Headers:
+	HTTP/1.1 200 OK
+	Server: nginx
+	Date: Tue, 04 Jun 2024 22:33:01 GMT
+	Content-Type: text/html; charset=utf-8
+	Transfer-Encoding: chunked
+	Connection: close
+	Vary: Accept-Encoding
+	Cache-Control: max-age=0, private, must-revalidate
+	Content-Security-Policy:
+	Etag: W/"b507ae5a5a26712dc8567d689708e5d6"
+	Permissions-Policy: interest-cohort=()
+	Set-Cookie: preferred_language=en; path=/
+	Set-Cookie: _gitlab_session=8ca23d5f1594de56f8365af82c09203c; path=/; expires=Wed, 05 Jun 2024 00:33:00 GMT; HttpOnly
+	Vary: Accept
+	X-Content-Type-Options: nosniff
+	X-Download-Options: noopen
+	X-Frame-Options: SAMEORIGIN
+	X-Gitlab-Meta: {"correlation_id":"01HZJP4R9GXK0149NV70VW4E7Z","version":"1"}
+	X-Permitted-Cross-Domain-Policies: none
+	X-Request-Id: 01HZJP4R9GXK0149NV70VW4E7Z
+	X-Runtime: 0.022808
+	X-Ua-Compatible: IE=edge
+	X-Xss-Protection: 1; mode=block
+	Strict-Transport-Security: max-age=63072000
+	Referrer-Policy: strict-origin-when-cross-origin
+	Content-Encoding: gzip
+	

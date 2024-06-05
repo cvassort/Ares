@@ -1,0 +1,23 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: results/192.168.1.120_04-06-2024/dirb/192.168.1.120:9094_dirb.txt
+START_TIME: Wed Jun  5 19:50:10 2024
+URL_BASE: http://192.168.1.120:9094/
+WORDLIST_FILES: wordlists/big.txt
+
+-----------------
+
+GENERATED WORDS: 555
+
+---- Scanning URL: http://192.168.1.120:9094/ ----
+
+(!) FATAL: Too many errors connecting to host
+    (Possible cause: EMPTY REPLY FROM SERVER)
+
+-----------------
+END_TIME: Wed Jun  5 19:50:10 2024
+DOWNLOADED: 0 - FOUND: 0

@@ -1,0 +1,25 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: results/192.168.1.119:3000_04-06-2024/dirb/192.168.1.119:3000_dirb.txt
+START_TIME: Tue Jun  4 22:21:32 2024
+URL_BASE: http://192.168.1.119:3000/
+WORDLIST_FILES: wordlists/big.txt
+
+-----------------
+
+GENERATED WORDS: 555
+
+---- Scanning URL: http://192.168.1.119:3000/ ----
++ http://192.168.1.119:3000/profile (CODE:500|SIZE:1160)
++ http://192.168.1.119:3000/video (CODE:200|SIZE:10075518)
++ http://192.168.1.119:3000/assets (CODE:301|SIZE:179)
++ http://192.168.1.119:3000/redirect (CODE:500|SIZE:3119)
++ http://192.168.1.119:3000/ftp (CODE:200|SIZE:11062)
+
+-----------------
+END_TIME: Tue Jun  4 22:21:42 2024
+DOWNLOADED: 555 - FOUND: 5

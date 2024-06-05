@@ -2,7 +2,9 @@ FROM kalilinux/kali-rolling
 
 # Mettre à jour les paquets et installer les dépendances
 RUN apt update && apt upgrade -y && \
-    apt install -y python3 python3-pip nmap dirb gobuster nuclei whatweb nikto wapiti git wget curl sqlmap
+    apt install -y python3 python3-pip nmap dirb gobuster nuclei \
+    whatweb nikto wapiti git wget curl sqlmap weasyprint libpango-1.0-0 \
+    libpangoft2-1.0-0 libjpeg-dev libopenjp2-7-dev libffi-dev
 
 WORKDIR /nuclei-templates
 RUN git clone https://github.com/projectdiscovery/nuclei-templates.git

@@ -1,0 +1,8 @@
+[minecraft-enum] [javascript] [info] 192.168.1.120:22 ["Version: 8.9p1 Ubuntu-3 Description:ubuntu0 Online Players:\n Maximum Players:3"]
+[CVE-2023-48795] [javascript] [medium] 192.168.1.120:22 ["Vulnerable to Terrapin"]
+[ssh-auth-methods] [javascript] [info] 192.168.1.120:22 ["["publickey"]"]
+[pop3-capabilities-enum] [javascript] [info] 192.168.1.120:22 ["SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.3 Invalid SSH identification string."]
+[redis-require-auth] [javascript] [info] 192.168.1.120:22
+[ssh-sha1-hmac-algo] [javascript] [info] 192.168.1.120:22
+[ssh-server-enumeration] [javascript] [info] 192.168.1.120:22 ["SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.3"]
+[openssh-detect] [tcp] [info] 192.168.1.120:22 ["SSH-2.0-OpenSSH_8.9p1 Ubuntu-3ubuntu0.3"]
