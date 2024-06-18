@@ -1,5 +1,0 @@
-[91m
-	XSStrike [97mv3.1.5
-[0m
-[97m[~][0m Crawling the target [0m
-[97m[~][0m Parsing ftp                                      [0m[97m[~][0m Parsing ftp/incident-support.kdbx                [0m[97m[~][0m Parsing ftp/eastere.gg                           [0m[97m[~][0m Parsing ftp/quarantine                           [0m[97m[~][0m Parsing ftp/announcement_encrypted.md            [0m[97m[~][0m Parsing ftp/package.json.bak                     [0m[97m[~][0m Parsing ftp/legal.md                             [0m[97m[~][0m Parsing ftp/acquisitions.md                      [0m[97m[~][0m Parsing ftp/suspicious_errors.yml                [0m[97m[~][0m Parsing ftp/coupons_2013.md.bak                  [0m[97m[~][0m Parsing ftp/encrypt.pyc                          [0m[93m[!][0m Progress: 10/11 [0m[93m[!][0m Progress: 11/11 [0m
