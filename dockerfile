@@ -13,6 +13,21 @@ WORKDIR /
 RUN git clone https://github.com/s0md3v/XSStrike.git
 RUN pip3 install -r /XSStrike/requirements.txt
 
+# Mettez à jour le conteneur et installez les dépendances nécessaires
+RUN apt-get update && apt-get install -y \
+    wget \
+    openjdk-11-jdk \
+    unzip
+
+# Télécharger et installer OWASP ZAP
+RUN wget https://github.com/zaproxy/zaproxy/releases/download/v2.15.0/ZAP_2.15.0_Linux.tar.gz && \
+    tar -xzf ZAP_2.15.0_Linux.tar.gz -C /opt && \
+    rm ZAP_2.15.0_Linux.tar.gz
+
+# Ajouter OWASP ZAP au PATH
+ENV PATH="/opt/ZAP_2.15.0:${PATH}"
+
+
 COPY . /app
 
 WORKDIR /app

@@ -71,8 +71,12 @@ def run_wapiti_scan(target, ip_ports, folder_path):
     os.makedirs(wapiti_folder_path, exist_ok=True)
     print(f"Running wapiti scan on {target}")
     for ip, port in ip_ports:
-        target = f"{ip}:{port}"
-        subprocess.run(['wapiti', '-u', f"http://{target}/", '-l', '2','-S','normal','-f','txt', '-o', os.path.join(wapiti_folder_path, f'{ip}:{port}_wapiti.txt')])
+        target_url = f"http://{ip}:{port}/"
+        output_file = os.path.join(wapiti_folder_path, f'{ip}:{port}_wapiti.txt')
+        try:
+            subprocess.run(['wapiti', '-u', target_url, '-l', '2', '-S', 'normal', '-f', 'txt', '-o', output_file], check=True)
+        except subprocess.CalledProcessError as e:
+            print(f"Error during Wapiti scan on {target_url}: {e}")
 
 def run_nikto_scan(target, ip_ports, folder_path):
     nikto_folder_path = os.path.join(folder_path, 'nikto')
@@ -95,8 +99,8 @@ def run_dirb_scan(target, ip_ports, folder_path):
 
 def scan_target(target, folder_path):
     ip_ports = run_nmap_scan(target,folder_path)
-    run_nuclei_scan(target, ip_ports,folder_path)
-    run_whatweb_scan(target, ip_ports,folder_path)
+    # run_nuclei_scan(target, ip_ports,folder_path)
+    # run_whatweb_scan(target, ip_ports,folder_path)
     run_wapiti_scan(target, ip_ports,folder_path)
-    run_nikto_scan(target, ip_ports,folder_path)
-    run_dirb_scan(target, ip_ports,folder_path) 
+    # run_nikto_scan(target, ip_ports,folder_path)
+    # run_dirb_scan(target, ip_ports,folder_path) 
