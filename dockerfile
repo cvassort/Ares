@@ -19,4 +19,4 @@ WORKDIR /app
 
 RUN pip3 install -r requirements.txt
 
-# CMD ["python3", "main.py", "192.168.1.119"]
+CMD ["python3", "main.py", "-f", "targets.txt"]

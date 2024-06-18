@@ -97,6 +97,6 @@ def scan_target(target, folder_path):
     ip_ports = run_nmap_scan(target,folder_path)
     run_nuclei_scan(target, ip_ports,folder_path)
     run_whatweb_scan(target, ip_ports,folder_path)
-    # run_wapiti_scan(target, ip_ports,folder_path)
+    run_wapiti_scan(target, ip_ports,folder_path)
     run_nikto_scan(target, ip_ports,folder_path)
     run_dirb_scan(target, ip_ports,folder_path) 
