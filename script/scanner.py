@@ -83,8 +83,15 @@ def run_nikto_scan(target, ip_ports, folder_path):
     os.makedirs(nikto_folder_path, exist_ok=True)
     print(f"Running nikto scan on {target}")
     for ip, port in ip_ports:
-        target = f"{ip}:{port}"
-        subprocess.run(['nikto', '-h', target, '-C','-Format+','txt', '-o', os.path.join(nikto_folder_path, f'{ip}:{port}_nikto.txt')])
+        target_url = f"http://{ip}:{port}"
+        output_file = os.path.join(nikto_folder_path, f'{ip}:{port}_nikto.txt')
+        print(f"Running nikto scan on {target_url}")
+        try:
+            subprocess.run(['nikto', '-h', target_url, '-C', 'all', '-Format', 'txt', '-o', output_file], timeout=1800) 
+        except subprocess.TimeoutExpired as e:
+            print(f"Nikto scan on {target_url} timed out: {e}")
+        except subprocess.CalledProcessError as e:
+            print(f"Error during Nikto scan on {target_url}: {e}")
 
 def run_dirb_scan(target, ip_ports, folder_path):
     dirb_folder_path = os.path.join(folder_path, 'dirb')
