@@ -1,0 +1,145 @@
+WhatWeb report for http://192.168.0.200:557
+Status    : 200 OK
+Title     : SAMSUNG TECHWIN NVR Web Viewer
+IP        : 192.168.0.200
+Country   : RESERVED, ZZ
+
+Summary   : Cookies[CAMERA_DEFAULT_PW_SUPPORT,CHANNEL_COUNT,DATA2,EPOS_SUPPORT,KEEP_ASPECT_RATIO_SUPPORT,LANGUAGE_SUPPORT,MAX_SEARCH_USER_NUMBER,NUM_ALARM_IN,NUM_ALARM_OUT,NVR_MODEL_CODE,NVR_MODEL_NAME,POE_SWITCH_STATUS,POWEROFF_ALARMOUT_SUPPORT,TOE_SUPPORT,VIDEO_SUMMARY_SUPPORT,VPM_KINDERGARTEN_SUPPORT,cs_id,is_login_ok,nvr_lang,setup1,ss_id], Frame, JQuery[1.7.2], PasswordField[chn_user_new_confirm_pwd,chn_user_new_pwd,chn_user_pwd], Script[javascript,text/javascript], X-UA-Compatible[IE=edge,requiresActiveX=true]
+
+Detected Plugins:
+[ Cookies ]
+	Display the names of cookies in the HTTP headers. The 
+	values are not returned to save on space. 
+
+	String       : NVR_MODEL_CODE
+	String       : POE_SWITCH_STATUS
+	String       : NVR_MODEL_NAME
+	String       : EPOS_SUPPORT
+	String       : VIDEO_SUMMARY_SUPPORT
+	String       : CHANNEL_COUNT
+	String       : LANGUAGE_SUPPORT
+	String       : POWEROFF_ALARMOUT_SUPPORT
+	String       : NUM_ALARM_IN
+	String       : NUM_ALARM_OUT
+	String       : CAMERA_DEFAULT_PW_SUPPORT
+	String       : KEEP_ASPECT_RATIO_SUPPORT
+	String       : TOE_SUPPORT
+	String       : MAX_SEARCH_USER_NUMBER
+	String       : VPM_KINDERGARTEN_SUPPORT
+	String       : NVR_MODEL_CODE
+	String       : NVR_MODEL_NAME
+	String       : EPOS_SUPPORT
+	String       : VIDEO_SUMMARY_SUPPORT
+	String       : CHANNEL_COUNT
+	String       : LANGUAGE_SUPPORT
+	String       : POWEROFF_ALARMOUT_SUPPORT
+	String       : NUM_ALARM_IN
+	String       : NUM_ALARM_OUT
+	String       : CAMERA_DEFAULT_PW_SUPPORT
+	String       : KEEP_ASPECT_RATIO_SUPPORT
+	String       : TOE_SUPPORT
+	String       : MAX_SEARCH_USER_NUMBER
+	String       : VPM_KINDERGARTEN_SUPPORT
+	String       : POE_SWITCH_STATUS
+	String       : DATA2
+	String       : cs_id
+	String       : ss_id
+	String       : is_login_ok
+	String       : NVR_MODEL_CODE
+	String       : NVR_MODEL_NAME
+	String       : EPOS_SUPPORT
+	String       : VIDEO_SUMMARY_SUPPORT
+	String       : LANGUAGE_SUPPORT
+	String       : CHANNEL_COUNT
+	String       : nvr_lang
+	String       : setup1
+
+[ Frame ]
+	This plugin detects instances of frame and iframe HTML 
+	elements. 
+
+
+[ JQuery ]
+	A fast, concise, JavaScript that simplifies how to traverse 
+	HTML documents, handle events, perform animations, and add 
+	AJAX. 
+
+	Version      : 1.7.2
+	Website     : http://jquery.com/
+
+[ PasswordField ]
+	find password fields 
+
+	String       : chn_user_pwd (from field name)
+	String       : chn_user_new_pwd (from field name)
+	String       : chn_user_new_confirm_pwd (from field name)
+
+[ Script ]
+	This plugin detects instances of script HTML elements and 
+	returns the script language/type. 
+
+	String       : javascript,text/javascript
+
+[ X-UA-Compatible ]
+	This plugin retrieves the X-UA-Compatible value from the 
+	HTTP header and meta http-equiv tag. - More Info: 
+	http://msdn.microsoft.com/en-us/library/cc817574.aspx 
+
+	String       : IE=edge
+	String       : requiresActiveX=true
+
+HTTP Headers:
+	HTTP/1.1 200 OK
+	X-UA-Compatible: requiresActiveX=true
+	Set-Cookie: NVR_MODEL_CODE=301; path=/
+	Set-Cookie: POE_SWITCH_STATUS=1; path=/
+	Set-Cookie: NVR_MODEL_NAME=SRN-873S; path=/
+	Set-Cookie: EPOS_SUPPORT=1; path=/
+	Set-Cookie: VIDEO_SUMMARY_SUPPORT=0; path=/
+	Set-Cookie: CHANNEL_COUNT=8; path=/
+	Set-Cookie: LANGUAGE_SUPPORT=16777215; path=/
+	Set-Cookie: POWEROFF_ALARMOUT_SUPPORT=1; path=/
+	Set-Cookie: NUM_ALARM_IN=4; path=/
+	Set-Cookie: NUM_ALARM_OUT=3; path=/
+	Set-Cookie: CAMERA_DEFAULT_PW_SUPPORT=0; path=/
+	Set-Cookie: KEEP_ASPECT_RATIO_SUPPORT=1; path=/
+	Set-Cookie: TOE_SUPPORT=1; path=/
+	Set-Cookie: MAX_SEARCH_USER_NUMBER=3; path=/
+	Set-Cookie: VPM_KINDERGARTEN_SUPPORT=0; path=/
+	Set-Cookie: NVR_MODEL_CODE=301; path=/
+	Set-Cookie: NVR_MODEL_NAME=SRN-873S; path=/
+	Set-Cookie: EPOS_SUPPORT=1; path=/
+	Set-Cookie: VIDEO_SUMMARY_SUPPORT=0; path=/
+	Set-Cookie: CHANNEL_COUNT=8; path=/
+	Set-Cookie: LANGUAGE_SUPPORT=16777215; path=/
+	Set-Cookie: POWEROFF_ALARMOUT_SUPPORT=1; path=/
+	Set-Cookie: NUM_ALARM_IN=4; path=/
+	Set-Cookie: NUM_ALARM_OUT=3; path=/
+	Set-Cookie: CAMERA_DEFAULT_PW_SUPPORT=0; path=/
+	Set-Cookie: KEEP_ASPECT_RATIO_SUPPORT=1; path=/
+	Set-Cookie: TOE_SUPPORT=1; path=/
+	Set-Cookie: MAX_SEARCH_USER_NUMBER=3; path=/
+	Set-Cookie: VPM_KINDERGARTEN_SUPPORT=0; path=/
+	Set-Cookie: POE_SWITCH_STATUS=1; path=/
+	Set-Cookie: DATA2=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/
+	Set-Cookie: cs_id=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/
+	Set-Cookie: ss_id=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/
+	Set-Cookie: is_login_ok=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/
+	Set-Cookie: NVR_MODEL_CODE=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/
+	Set-Cookie: NVR_MODEL_NAME=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/
+	Set-Cookie: EPOS_SUPPORT=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/
+	Set-Cookie: VIDEO_SUMMARY_SUPPORT=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/
+	Set-Cookie: LANGUAGE_SUPPORT=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/
+	Set-Cookie: CHANNEL_COUNT=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/
+	Set-Cookie: nvr_lang=1; path=/
+	Set-Cookie: setup1=deleted; expires=Thu, 01-Jan-1970 00:00:01 GMT; Max-Age=0; path=/
+	Expires: Mon, 26 Jul 1997 05:00:00 GMT
+	Last-Modified: Sat, 22 Jun 2024 01:02:45 GMT
+	Cache-Control: no-store, no-cache, must-revalidate, max-age=0
+	Cache-Control: post-check=0, pre-check=0
+	Pragma: no-cache
+	Content-type: text/html; charset=UTF-8
+	Connection: close
+	Transfer-Encoding: chunked
+	Date: Sat, 22 Jun 2024 01:02:44 GMT
+	

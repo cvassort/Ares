@@ -1,0 +1,26 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: results/192.168.0.200_21-06-2024/dirb/192.168.0.200:4000_dirb.txt
+START_TIME: Sat Jun 22 00:15:58 2024
+URL_BASE: http://192.168.0.200:4000/
+WORDLIST_FILES: wordlists/big.txt
+
+-----------------
+
+GENERATED WORDS: 555
+
+---- Scanning URL: http://192.168.0.200:4000/ ----
+==> DIRECTORY: http://192.168.0.200:4000/cgi-bin/
+==> DIRECTORY: http://192.168.0.200:4000/image/
+
+---- Entering directory: http://192.168.0.200:4000/cgi-bin/ ----
+
+---- Entering directory: http://192.168.0.200:4000/image/ ----
+
+-----------------
+END_TIME: Sat Jun 22 00:15:58 2024
+DOWNLOADED: 1665 - FOUND: 0

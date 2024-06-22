@@ -1,0 +1,23 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: results/192.168.0.200_21-06-2024/dirb/192.168.0.200:9192_dirb.txt
+START_TIME: Sat Jun 22 00:15:58 2024
+URL_BASE: http://192.168.0.200:9192/
+WORDLIST_FILES: wordlists/big.txt
+
+-----------------
+
+GENERATED WORDS: 555
+
+---- Scanning URL: http://192.168.0.200:9192/ ----
+
+(!) FATAL: Too many errors connecting to host
+    (Possible cause: OPERATION TIMEOUT)
+
+-----------------
+END_TIME: Sat Jun 22 00:18:28 2024
+DOWNLOADED: 0 - FOUND: 0

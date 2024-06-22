@@ -1,0 +1,36 @@
+# Nmap 7.94SVN scan initiated Fri Jun 21 23:34:48 2024 as: nmap -sC -sV -p- --open -Pn -o results/192.168.0.200_21-06-2024/nmap/192.168.0.200_nmap.txt -T4 192.168.0.200
+Nmap scan report for 192.168.0.200
+Host is up (0.00059s latency).
+Not shown: 65524 closed tcp ports (reset), 3 filtered tcp ports (no-response)
+Some closed ports may be reported as filtered due to --defeat-rst-ratelimit
+PORT      STATE SERVICE       VERSION
+554/tcp   open  tcpwrapped
+555/tcp   open  dsf?
+556/tcp   open  remotefs?
+557/tcp   open  http          lighttpd
+|_http-title: SAMSUNG TECHWIN NVR Web Viewer
+558/tcp   open  rtsp
+|_rtsp-methods: ERROR: Script execution failed (use -d to debug)
+| fingerprint-strings: 
+|   FourOhFourRequest, GetRequest, HTTPOptions, RTSPRequest: 
+|     RTSP/1.0 404 Not Found
+|     CSeq: 0
+|_    Date: Sat Jun 22 00:33:30 2024 GMT
+4000/tcp  open  http          lighttpd
+|_http-title: SAMSUNG TECHWIN NVR Web Viewer
+9192/tcp  open  unknown
+25000/tcp open  icl-twobase1?
+1 service unrecognized despite returning data. If you know the service/version, please submit the following fingerprint at https://nmap.org/cgi-bin/submit.cgi?new-service :
+SF-Port558-TCP:V=7.94SVN%I=7%D=6/21%Time=66760E27%P=x86_64-pc-linux-gnu%r(
+SF:GetRequest,47,"RTSP/1\.0\x20404\x20Not\x20Found\r\nCSeq:\x200\r\nDate:\
+SF:x20Sat\x20Jun\x2022\x2000:33:30\x202024\x20GMT\r\n\r\n")%r(HTTPOptions,
+SF:47,"RTSP/1\.0\x20404\x20Not\x20Found\r\nCSeq:\x200\r\nDate:\x20Sat\x20J
+SF:un\x2022\x2000:33:30\x202024\x20GMT\r\n\r\n")%r(RTSPRequest,47,"RTSP/1\
+SF:.0\x20404\x20Not\x20Found\r\nCSeq:\x200\r\nDate:\x20Sat\x20Jun\x2022\x2
+SF:000:33:30\x202024\x20GMT\r\n\r\n")%r(FourOhFourRequest,47,"RTSP/1\.0\x2
+SF:0404\x20Not\x20Found\r\nCSeq:\x200\r\nDate:\x20Sat\x20Jun\x2022\x2000:3
+SF:3:30\x202024\x20GMT\r\n\r\n");
+MAC Address: 00:16:6C:98:E9:AE (Samsung Electronics)
+
+Service detection performed. Please report any incorrect results at https://nmap.org/submit/ .
+# Nmap done at Fri Jun 21 23:38:03 2024 -- 1 IP address (1 host up) scanned in 195.17 seconds

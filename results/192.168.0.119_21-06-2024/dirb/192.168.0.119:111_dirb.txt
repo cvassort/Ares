@@ -1,0 +1,23 @@
+
+-----------------
+DIRB v2.22    
+By The Dark Raver
+-----------------
+
+OUTPUT_FILE: results/192.168.0.119_21-06-2024/dirb/192.168.0.119:111_dirb.txt
+START_TIME: Fri Jun 21 23:29:45 2024
+URL_BASE: http://192.168.0.119:111/
+WORDLIST_FILES: wordlists/big.txt
+
+-----------------
+
+GENERATED WORDS: 555
+
+---- Scanning URL: http://192.168.0.119:111/ ----
+
+(!) FATAL: Too many errors connecting to host
+    (Possible cause: RECV ERROR)
+
+-----------------
+END_TIME: Fri Jun 21 23:29:45 2024
+DOWNLOADED: 0 - FOUND: 0

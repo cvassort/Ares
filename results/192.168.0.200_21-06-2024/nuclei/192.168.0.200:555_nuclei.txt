@@ -1,0 +1,1 @@
+[redis-require-auth] [javascript] [info] 192.168.0.200:555

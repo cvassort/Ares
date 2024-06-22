@@ -1,0 +1,15 @@
+[cookies-without-httponly] [http] [info] http://192.168.0.200:4000
+[cookies-without-secure] [http] [info] http://192.168.0.200:4000
+[http-missing-security-headers:referrer-policy] [http] [info] http://192.168.0.200:4000
+[http-missing-security-headers:clear-site-data] [http] [info] http://192.168.0.200:4000
+[http-missing-security-headers:cross-origin-opener-policy] [http] [info] http://192.168.0.200:4000
+[http-missing-security-headers:content-security-policy] [http] [info] http://192.168.0.200:4000
+[http-missing-security-headers:x-frame-options] [http] [info] http://192.168.0.200:4000
+[http-missing-security-headers:x-content-type-options] [http] [info] http://192.168.0.200:4000
+[http-missing-security-headers:x-permitted-cross-domain-policies] [http] [info] http://192.168.0.200:4000
+[http-missing-security-headers:cross-origin-embedder-policy] [http] [info] http://192.168.0.200:4000
+[http-missing-security-headers:cross-origin-resource-policy] [http] [info] http://192.168.0.200:4000
+[http-missing-security-headers:strict-transport-security] [http] [info] http://192.168.0.200:4000
+[http-missing-security-headers:permissions-policy] [http] [info] http://192.168.0.200:4000
+[missing-sri] [http] [info] http://192.168.0.200:4000 ["http://192.168.0.200:4000/resource/js/common/rsa2.js","http://192.168.0.200:4000/resource/js/common/base64.js","http://192.168.0.200:4000/resource/js/login/login.js","http://192.168.0.200:4000/index.php/commonJS","http://192.168.0.200:4000/resource/js/common/jquery.sha256.js","http://192.168.0.200:4000/resource/js/common/rng.js","http://192.168.0.200:4000/resource/js/common/jquery.input.js","http://192.168.0.200:4000/resource/js/common/jquery-1.7.2.min.js","http://192.168.0.200:4000/resource/js/common/jsbn2.js","http://192.168.0.200:4000/resource/js/common/prng4.js","http://192.168.0.200:4000/resource/js/common/jquery-ui-1.8.18.custom.min.js","http://192.168.0.200:4000/resource/js/common/util.js","http://192.168.0.200:4000/resource/js/common/jsbn.js","http://192.168.0.200:4000/resource/js/common/rsa.js","http://192.168.0.200:4000/resource/js/common/jquery.ua.custom.js","http://192.168.0.200:4000/resource/js/common/functionsfive.js","http://192.168.0.200:4000/index.php/commonJS/lang_js","http://192.168.0.200:4000/resource/js/common/jquery.ui.dialog.js","http://192.168.0.200:4000/resource/js/common/jQueryRotate.2.2.js"]
+[cors-misconfig:arbitrary-origin] [http] [info] http://192.168.0.200:4000 [cors_origin="https://krakh0.200"]

@@ -11,7 +11,7 @@ def run_nmap_scan(target, folder_path):
         
         ip, port = target.split(':')
         print(f"Running nmap scan on : {ip}")
-        nmap_output = subprocess.run(['nmap', '-A', '-sV', '-p', port, ip, '-o', os.path.join(nmap_folder_path, f'{ip}:{port}_nmap.txt'), '-T4'], capture_output=True, text=True)
+        nmap_output = subprocess.run(['nmap', '-A', '-sV', '-p', port, ip,'-Pn', '-o', os.path.join(nmap_folder_path, f'{ip}:{port}_nmap.txt'), '-T4'], capture_output=True, text=True)
 
         # Parse nmap output to extract open ports
         open_ports = []
@@ -28,7 +28,7 @@ def run_nmap_scan(target, folder_path):
     else:
         ip = target
         print(f"Running nmap scan on {ip}")
-        nmap_output = subprocess.run(['nmap','sC', '-sV','-p-', '--open', '-o',os.path.join(nmap_folder_path, f'{ip}_nmap.txt'), ip , '-T4'], capture_output=True, text=True)
+        nmap_output = subprocess.run(['nmap','-sC', '-sV','-p-', '--open','-Pn', '-o',os.path.join(nmap_folder_path, f'{ip}_nmap.txt'), ip , '-T4'], capture_output=True, text=True)
 
         # Parse nmap output to extract open ports
         open_ports = []
