@@ -1,2 +1,0 @@
-[smb2-server-time] [javascript] [info] 192.168.0.119:139 ["SystemTime: 2024-06-21T23:07:24.000Z ServerStartTime: 2009-04-22T19:24:48.000Z"]
-[erlang-daemon] [tcp] [low] 192.168.0.119:139

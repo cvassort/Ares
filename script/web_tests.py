@@ -10,6 +10,20 @@ import csv
 urllib3.disable_warnings(urllib3.exceptions.InsecureRequestWarning)
 
 def convert_dirb_output_to_csv(target, folder_path):
+    """
+    Converts the output of Dirb tool to a CSV file.
+
+    Args:
+        target (str): The target name.
+        folder_path (str): The path to the folder containing the Dirb output files.
+
+    Returns:
+        None
+
+    Raises:
+        FileNotFoundError: If the specified folder_path does not exist.
+
+    """
     dirb_folder_path = os.path.join(folder_path, 'dirb')
     csv_file_path = os.path.join(dirb_folder_path, f'{target}_dirb.csv')
     with open(csv_file_path, 'w', newline='') as csv_file:
@@ -28,6 +42,17 @@ def convert_dirb_output_to_csv(target, folder_path):
 
 
 def get_directory_dirb(target, folder_path):
+    """
+    Get the directory for the target using the DirBuster tool.
+
+    Args:
+        target (str): The target for which the directory is to be retrieved.
+        folder_path (str): The path to the folder where the directory files will be stored.
+
+    Returns:
+        list: A list of valid URLs found in the directory file.
+
+    """
     dirb_folder_path = os.path.join(folder_path, 'dirb')
     os.makedirs(dirb_folder_path, exist_ok=True)
     # Open dirb file and get directory for the target
@@ -36,7 +61,24 @@ def get_directory_dirb(target, folder_path):
         valid_urls = dirb_file.readlines()
     return valid_urls
 
+
+
 def test_xss_with_xsstrike(valid_url, folder_path, target):
+    """
+    Test XSS vulnerabilities on a given URL using XSStrike.
+
+    Args:
+        valid_url (str): The valid URL to test for XSS vulnerabilities.
+        folder_path (str): The folder path where the XSS results will be stored.
+        target (str): The target IP address and port in the format 'ip:port'.
+
+    Returns:
+        None
+
+    Raises:
+        Exception: If an error occurs during the XSS testing.
+
+    """
     ip, port = target.split(':')
     print(f"Testing XSS on {valid_url.strip()} using XSStrike")
     xss_dir_path = os.path.join(folder_path, "xss")
@@ -71,7 +113,22 @@ def test_xss_with_xsstrike(valid_url, folder_path, target):
     except Exception as e:
         print(f"An error occurred: {e}")
 
+
 def test_sqli_with_sqlmap(valid_url, folder_path, target):
+    """
+    Test SQL injection vulnerability using sqlmap.
+
+    Args:
+        valid_url (str): The valid URL to test for SQL injection vulnerability.
+        folder_path (str): The path to the folder where the SQL injection results will be stored.
+        target (str): The target IP address and port in the format 'ip:port'.
+
+    Returns:
+        None
+
+    Raises:
+        Exception: If an error occurs during the execution of the function.
+    """
     ip, port = target.split(':')
     print(f"Testing SQLi on {valid_url.strip()} using sqlmap")
     sqli_dir_path = os.path.join(folder_path, "sqli")
@@ -108,6 +165,16 @@ def test_sqli_with_sqlmap(valid_url, folder_path, target):
         print(f"An error occurred: {e}")
 
 def run_security_tests(target, folder_path):
+    """
+    Run security tests on the specified target.
+
+    Args:
+        target (str): The target URL or IP address.
+        folder_path (str): The path to the folder where the test results will be stored.
+
+    Returns:
+        None
+    """
     print(f"Converting dirb output to CSV for {target}")
     convert_dirb_output_to_csv(target, folder_path)
     valid_urls = get_directory_dirb(target, folder_path)

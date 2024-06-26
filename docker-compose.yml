@@ -1,7 +1,7 @@
 services:
   kali-pentest:
     build: .
-    container_name: kali_pentest
+    container_name: Ares_box
     volumes:
       - .:/app
     network_mode: host

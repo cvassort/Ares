@@ -2,27 +2,169 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Security Report</title>
-    <link
-      rel="stylesheet"
-      href="https://fonts.googleapis.com/css?family=Roboto&display=swap"
-    />
-    <link rel="stylesheet" href="./style.css" />
-    <!-- Assurez-vous que le chemin vers votre fichier CSS est correct -->
+    <title>Scan Report</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        line-height: 1.6;
+        margin: 30px;
+        text-align: justify;
+      }
+      .centered-image {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 100%;
+        height: auto;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+      }
+      .page-break {
+        page-break-before: always;
+      }
+      header {
+        text-align: center;
+        margin-bottom: 40px;
+      }
+      h1 {
+        font-size: 28px;
+        color: #4caf50;
+        margin-bottom: 10px;
+      }
+      h2 {
+        font-size: 24px;
+        color: #2196f3;
+        margin-top: 40px;
+        border-bottom: 2px solid #ddd;
+        padding-bottom: 5px;
+      }
+      pre {
+        background-color: #f4f4f4;
+        padding: 15px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        white-space: pre-wrap;
+        word-wrap: break-word;
+      }
+      .scan-section {
+        margin-bottom: 30px;
+      }
+      .scan-results {
+        background-color: #ffffff;
+        padding: 20px;
+        border-radius: 8px;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      .scan-results p {
+        margin: 10px 0;
+      }
+      /* Tableau général */
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-bottom: 20px;
+        border: 1px solid #ddd;
+        border-radius: 5px;
+        overflow: hidden;
+        box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+      /* En-tête du tableau */
+      th {
+        background-color: #f2f2f2;
+        padding: 10px;
+        text-align: left;
+      }
+      /* Cellules du tableau */
+      td {
+        padding: 10px;
+        border-bottom: 1px solid #ddd;
+      }
+      /* Ligne alternative pour le tableau */
+      tr:nth-child(even) {
+        background-color: #f9f9f9;
+      }
+      /* Lorsque la souris survole une ligne */
+      tr:hover {
+        background-color: #f1f1f1;
+      }
+    </style>
   </head>
   <body>
     <header>
-      <h1>Security Report for {{ target }}</h1>
-      <p>Report generated on: {{ date }}</p>
+      <h1>Scan Report</h1>
+      <p>Generated on {{ date }}</p>
     </header>
-    <main>
-      {% for scan_name, scan_data in scan_results.items() %}
-      <section>
-        <h2>{{ scan_name }} Scan Results</h2>
-        <pre>{{ scan_data }}</pre>
-      </section>
-      {% endfor %}
-    </main>
+
+    <section id="target_info">
+      <h2>Target Information</h2>
+      <p>Target IP: {{ target }}</p>
+    </section>
+
+    <section id="nmap_results">
+      <h2>Nmap Scan Results</h2>
+      {{ essential_nmap_info | safe }}
+    </section>
+
+    <section class="scan-section">
+      <h2>Nuclei Scan Results</h2>
+      <div class="nuclei-graph">
+        <img
+          src="./nuclei_graph.png"
+          alt="Nuclei Scan Results Graph"
+          class="centered-image"
+        />
+      </div>
+      <div class="scan-results">
+        <p>{{ scan_results['Nuclei'] | safe }}</p>
+      </div>
+    </section>
+
+    <section class="scan-section">
+      <h2>Wapiti Scan Results</h2>
+      <div class="scan-results">
+        <h3>Wapiti Scan Report</h3>
+        <pre>{{ scan_results['Wapiti'] | safe }}</pre>
+      </div>
+    </section>
+
+    <section class="scan-section">
+      <h2>WhatWeb Scan Results</h2>
+      <div class="scan-results">
+        <h3>WhatWeb Scan Report</h3>
+        <pre>{{ scan_results['WhatWeb'] | safe }}</pre>
+      </div>
+    </section>
+
+    <section class="scan-section">
+      <h2>Nikto Scan Results</h2>
+      <div class="scan-results">
+        <h3>Nikto Scan Report</h3>
+        <pre>{{ scan_results['Nikto'] | safe }}</pre>
+      </div>
+    </section>
+
+    <section class="scan-section">
+      <h2>Dirb Scan Results</h2>
+      <div class="scan-results">
+        <h3>Dirb Scan Report</h3>
+        <pre>{{ scan_results['Dirb'] | safe }}</pre>
+      </div>
+    </section>
+
+    <section class="scan-section">
+      <h2>XSS Scan Results</h2>
+      <div class="scan-results">
+        <h3>XSS Scan Report</h3>
+        <pre>{{ scan_results['XSS'] | safe }}</pre>
+      </div>
+    </section>
+
+    <section class="scan-section">
+      <h2>SQLi Scan Results</h2>
+      <div class="scan-results">
+        <h3>SQLi Scan Report</h3>
+        <pre>{{ scan_results['SQLi'] | safe }}</pre>
+      </div>
+    </section>
   </body>
 </html>

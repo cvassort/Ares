@@ -1,6 +1,0 @@
-[tech-detect:nginx] [http] [info] http://192.168.0.119:80
-[external-service-interaction] [http] [info] http://192.168.0.119:80
-[waf-detect:nginxgeneric] [http] [info] http://192.168.0.119:80
-[smb2-capabilities] [javascript] [info] 192.168.0.119:445 ["["LargeMTU","Leasing"]"]
-[smb2-server-time] [javascript] [info] 192.168.0.119:445 ["SystemTime: 2024-06-21T23:03:24.000Z ServerStartTime: 2009-04-22T19:24:48.000Z"]
-[smb-anonymous-access] [javascript] [high] 192.168.0.119:445

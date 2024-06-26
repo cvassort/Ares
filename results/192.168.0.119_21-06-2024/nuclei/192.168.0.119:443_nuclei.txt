@@ -1,2 +1,0 @@
-[tls-version] [ssl] [info] 192.168.0.119:443 ["tls12"]
-[tls-version] [ssl] [info] 192.168.0.119:443 ["tls13"]
